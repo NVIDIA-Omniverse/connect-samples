@@ -1,0 +1,8 @@
+# $project_root/connect-sdk/$config/windows-x86_64/$config/config/omni.connect.client.toml
+[app]
+name = "GettingStarted"
+version = "1.0"
+
+["omni.connect.core".client]
+name = "UsdTraverse"
+version = "1.0"

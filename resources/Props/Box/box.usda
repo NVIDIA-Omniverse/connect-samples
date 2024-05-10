@@ -1,0 +1,251 @@
+#usda 1.0
+(
+    defaultPrim = "Root"
+    metersPerUnit = 0.01
+    upAxis = "Y"
+)
+
+def Xform "Root" (
+    kind = "component"
+)
+{
+    def Mesh "box" (
+        apiSchemas = ["MaterialBindingAPI"]
+    )
+    {
+        float3[] extent = [(-50, -50, -50), (50, 50, 50)]
+        int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+        int[] faceVertexIndices = [0, 1, 2, 1, 3, 2, 4, 5, 6, 4, 6, 7, 8, 9, 10, 8, 10, 11, 12, 13, 14, 12, 14, 15, 16, 17, 18, 16, 18, 19, 20, 21, 22, 20, 22, 23]
+        rel material:binding = </Root/Looks/Fieldstone>
+        uniform token orientation = "rightHanded"
+        point3f[] points = [(50, -50, -50), (-50, -50, -50), (50, 50, -50), (-50, 50, -50), (50, 50, 50), (-50, 50, 50), (-50, -50, 50), (50, -50, 50), (50, -50, 50), (-50, -50, 50), (-50, -50, -50), (50, -50, -50), (50, 50, 50), (50, -50, 50), (50, -50, -50), (50, 50, -50), (-50, 50, 50), (50, 50, 50), (50, 50, -50), (-50, 50, -50), (-50, -50, 50), (-50, 50, 50), (-50, 50, -50), (-50, -50, -50)]
+        color3f[] primvars:displayColor = [(0.463, 0.725, 0)] (
+            interpolation = "constant"
+        )
+        int[] primvars:displayColor:indices = None
+        normal3f[] primvars:normals = [(0, 0, -1), (0, 0, 1), (0, -1, 0), (1, 0, 0), (0, 1, 0), (-1, 0, 0)] (
+            interpolation = "vertex"
+        )
+        int[] primvars:normals:indices = [0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5]
+        texCoord2f[] primvars:st = [(0, 0), (0, 1), (1, 1), (1, 0)] (
+            interpolation = "vertex"
+        )
+        int[] primvars:st:indices = [0, 1, 3, 2, 0, 1, 3, 2, 0, 1, 3, 2, 0, 1, 3, 2, 0, 1, 3, 2, 0, 1, 3, 2]
+        uniform token subdivisionScheme = "none"
+        float3 xformOp:rotateXYZ = (0, -0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Scope "Looks"
+    {
+        def Material "Fieldstone"
+        {
+            asset inputs:DiffuseTexture = @../../Materials/Fieldstone/Fieldstone_BaseColor.png@ (
+                colorSpace = "auto"
+            )
+            asset inputs:NormalTexture = @../../Materials/Fieldstone/Fieldstone_N.png@ (
+                colorSpace = "raw"
+            )
+            float inputs:Opacity = 1 (
+                customData = {
+                    float default = 1
+                    dictionary range = {
+                        float max = 1
+                        float min = 0
+                    }
+                }
+            )
+            asset inputs:ORMTexture = @../../Materials/Fieldstone/Fieldstone_ORM.png@ (
+                colorSpace = "raw"
+            )
+            token outputs:displacement.connect = </Root/Looks/Fieldstone/PreviewSurface.outputs:displacement>
+            token outputs:mdl:displacement.connect = </Root/Looks/Fieldstone/MDLShader.outputs:out>
+            token outputs:mdl:surface.connect = </Root/Looks/Fieldstone/MDLShader.outputs:out>
+            token outputs:mdl:volume.connect = </Root/Looks/Fieldstone/MDLShader.outputs:out>
+            token outputs:surface.connect = </Root/Looks/Fieldstone/PreviewSurface.outputs:surface>
+
+            def Shader "MDLShader"
+            {
+                uniform token info:implementationSource = "sourceAsset"
+                uniform asset info:mdl:sourceAsset = @OmniPBR.mdl@
+                uniform token info:mdl:sourceAsset:subIdentifier = "OmniPBR"
+                color3f inputs:diffuse_color_constant = (0.4, 0.3, 0.2) (
+                    customData = {
+                        float3 default = (0.2, 0.2, 0.2)
+                    }
+                    displayGroup = "Albedo"
+                    displayName = "Albedo Color"
+                    doc = "This is the albedo base color"
+                    hidden = false
+                    renderType = "color"
+                )
+                color3f inputs:diffuse_color_constant.connect = None
+                asset inputs:diffuse_texture (
+                    customData = {
+                        asset default = @@
+                    }
+                    displayGroup = "Albedo"
+                    displayName = "Albedo Map"
+                    hidden = false
+                    renderType = "texture_2d"
+                )
+                asset inputs:diffuse_texture.connect = </Root/Looks/Fieldstone.inputs:DiffuseTexture>
+                bool inputs:enable_ORM_texture = 1 (
+                    customData = {
+                        bool default = 0
+                    }
+                    displayGroup = "Reflectivity"
+                    displayName = "Enable ORM Texture"
+                    doc = "The ORM texture will be used to extract the Occlusion, Roughness and Metallic textures from R,G,B channels"
+                    hidden = false
+                )
+                float inputs:metallic_constant = 0 (
+                    customData = {
+                        float default = 0
+                        dictionary range = {
+                            float max = 1
+                            float min = 0
+                        }
+                    }
+                    displayGroup = "Reflectivity"
+                    displayName = "Metallic Amount"
+                    doc = "Metallic Material"
+                    hidden = false
+                )
+                float inputs:metallic_constant.connect = None
+                float inputs:metallic_texture_influence = 1 (
+                    customData = {
+                        float default = 0
+                        dictionary range = {
+                            float max = 1
+                            float min = 0
+                        }
+                    }
+                    displayGroup = "Reflectivity"
+                    displayName = "Metallic Map Influence"
+                    doc = "Blends between the constant value and the lookup of the metallic texture"
+                    hidden = false
+                )
+                asset inputs:normalmap_texture (
+                    customData = {
+                        asset default = @@
+                    }
+                    displayGroup = "Normal"
+                    displayName = "Normal Map"
+                    hidden = false
+                    renderType = "texture_2d"
+                )
+                asset inputs:normalmap_texture.connect = </Root/Looks/Fieldstone.inputs:NormalTexture>
+                float inputs:opacity_constant (
+                    customData = {
+                        float default = 1
+                        dictionary range = {
+                            float max = 1
+                            float min = 0
+                        }
+                    }
+                    displayGroup = "Opacity"
+                    displayName = "Opacity Amount"
+                    doc = "Opacity value between 0 and 1, when Opacity Map is not valid"
+                    hidden = false
+                )
+                float inputs:opacity_constant.connect = </Root/Looks/Fieldstone.inputs:Opacity>
+                asset inputs:ORM_texture (
+                    customData = {
+                        asset default = @@
+                    }
+                    displayGroup = "Reflectivity"
+                    displayName = "ORM Map"
+                    doc = "Texture that has Occlusion, Roughness and Metallic maps stored in their respective R, G and B channels"
+                    hidden = false
+                    renderType = "texture_2d"
+                )
+                asset inputs:ORM_texture.connect = </Root/Looks/Fieldstone.inputs:ORMTexture>
+                float inputs:reflection_roughness_constant = 0.5 (
+                    customData = {
+                        float default = 0.5
+                        dictionary range = {
+                            float max = 1
+                            float min = 0
+                        }
+                    }
+                    displayGroup = "Reflectivity"
+                    displayName = "Roughness Amount"
+                    doc = "Higher roughness values lead to more blurry reflections"
+                    hidden = false
+                )
+                float inputs:reflection_roughness_constant.connect = None
+                float inputs:reflection_roughness_texture_influence = 1 (
+                    customData = {
+                        float default = 0
+                        dictionary range = {
+                            float max = 1
+                            float min = 0
+                        }
+                    }
+                    displayGroup = "Reflectivity"
+                    displayName = "Roughness Map Influence"
+                    doc = "Blends between the constant value and the lookup of the roughness texture"
+                    hidden = false
+                )
+                token outputs:out
+            }
+
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor.connect = </Root/Looks/Fieldstone/DiffuseColorTex.outputs:rgb>
+                float inputs:metallic.connect = </Root/Looks/Fieldstone/ORMTex.outputs:b>
+                normal3f inputs:normal.connect = </Root/Looks/Fieldstone/NormalTex.outputs:rgb>
+                float inputs:occlusion.connect = </Root/Looks/Fieldstone/ORMTex.outputs:r>
+                float inputs:opacity.connect = </Root/Looks/Fieldstone.inputs:Opacity>
+                float inputs:roughness.connect = </Root/Looks/Fieldstone/ORMTex.outputs:g>
+                token outputs:displacement
+                token outputs:surface
+            }
+
+            def Shader "PrimST"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+
+            def Shader "DiffuseColorTex"
+            {
+                uniform token info:id = "UsdUVTexture"
+                float4 inputs:fallback = (0.4, 0.3, 0.2, 1)
+                asset inputs:file.connect = </Root/Looks/Fieldstone.inputs:DiffuseTexture>
+                token inputs:sourceColorSpace = "auto"
+                float2 inputs:st.connect = </Root/Looks/Fieldstone/PrimST.outputs:result>
+                float3 outputs:rgb
+            }
+
+            def Shader "ORMTex"
+            {
+                uniform token info:id = "UsdUVTexture"
+                float4 inputs:fallback = (1, 0.5, 0, 0)
+                asset inputs:file.connect = </Root/Looks/Fieldstone.inputs:ORMTexture>
+                token inputs:sourceColorSpace = "raw"
+                float2 inputs:st.connect = </Root/Looks/Fieldstone/PrimST.outputs:result>
+                float outputs:b
+                float outputs:g
+                float outputs:r
+            }
+
+            def Shader "NormalTex"
+            {
+                uniform token info:id = "UsdUVTexture"
+                float4 inputs:bias = (-1, -1, -1, 0)
+                float4 inputs:fallback = (0, 0, 1, 1)
+                asset inputs:file.connect = </Root/Looks/Fieldstone.inputs:NormalTexture>
+                float4 inputs:scale = (2, 2, 2, 1)
+                token inputs:sourceColorSpace = "raw"
+                float2 inputs:st.connect = </Root/Looks/Fieldstone/PrimST.outputs:result>
+                float3 outputs:rgb
+            }
+        }
+    }
+}

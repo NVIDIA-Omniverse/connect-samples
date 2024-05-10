@@ -1,0 +1,12 @@
+AlignAfterOpenBracket: DontAlign
+AlignOperands: DontAlign
+AllowShortLambdasOnASingleLine: None
+BasedOnStyle: Chromium
+BreakBeforeBraces: Allman
+BreakStringLiterals: false
+ColumnLimit: 180
+Cpp11BracedListStyle: false
+IndentCaseLabels: false
+IndentWidth: 4
+ReflowComments: false
+SpaceAfterTemplateKeyword: false

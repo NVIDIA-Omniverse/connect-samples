@@ -1,0 +1,11 @@
+# Normalize text files on commit to LF endings by default
+# Works around bad default git behavior on Windows when core.autocrlf=false
+* text=auto
+
+# Make sure batch files have CRLF line endings
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Make sure shell scripts have LF line endings, even when checked out on a Windows client with autocrlf=true
+*.sh text eol=lf
+

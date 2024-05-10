@@ -1,0 +1,16 @@
+<project toolsVersion="5.6">
+
+  <!-- the folder must be called .../msvc for build.py to find MSBuild -->
+  <dependency name="msvc" linkPath="../_build/host-deps/msvc" tags="license-bypass">
+    <package name="msvc" version="2019-16.11.17-ndebug" platforms="windows-x86_64" />
+  </dependency>
+
+  <dependency name="winsdk" linkPath="../_build/host-deps/winsdk">
+    <package name="winsdk" version="10.0.18362.0-license" platforms="windows-x86_64"/>
+  </dependency>
+
+  <!-- This is explicitly listed here so that we don't have to specify detailed paths in premake5.lua's paths.clExeDir -->
+  <dependency name="vc" linkPath="../_build/host-deps/vc">
+      <source path="../_build/host-deps/msvc/VC/Tools/MSVC/14.29.30133" platforms="windows-x86_64" />
+  </dependency>
+</project>
