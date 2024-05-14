@@ -19,7 +19,7 @@ if not exist "%PYTHON%" (
     exit /b
 )
 
-"%PYTHON%" source\pyHelloWorld\liveSession.py %*
+"%PYTHON%" -s source\pyHelloWorld\liveSession.py %*
 
 popd
 

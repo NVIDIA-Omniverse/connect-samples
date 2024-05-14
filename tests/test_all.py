@@ -84,7 +84,7 @@ def test_helloworld_cpp():
     return_code, output = run_shell_script("omni_asset_validator", stage_url)
     assert return_code == 0
     for line in output.splitlines():
-        if line.startswith("[Error]"):
+        if line.startswith("[Error]") or line.startswith("[Fatal]"):
             if should_ignore_error(line):
                 pass
             else:
@@ -145,7 +145,7 @@ def test_helloworld_py():
     return_code, output = run_shell_script("omni_asset_validator", stage_url)
     assert return_code == 0
     for line in output.splitlines():
-        if line.startswith("[Error]"):
+        if line.startswith("[Error]") or line.startswith("[Fatal]"):
             if should_ignore_error(line):
                 pass
             else:
@@ -182,7 +182,7 @@ def test_simple_sensor():
     return_code, output = run_shell_script("omni_asset_validator", stage_url)
     assert return_code == 0
     for line in output.splitlines():
-        if line.startswith("[Error]"):
+        if line.startswith("[Error]") or line.startswith("[Fatal]"):
             assert False, line
 
 

@@ -19,5 +19,5 @@ if [ ! -f "${PYTHON}" ]; then
     exit
 fi
 
-"${PYTHON}" ./tests/test_all.py "$@"
+"${PYTHON}" -s ./tests/test_all.py "$@"
 popd > /dev/null

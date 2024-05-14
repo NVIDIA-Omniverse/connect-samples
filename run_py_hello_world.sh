@@ -12,6 +12,7 @@ export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${PYTHONHOME}/lib:${CARB_APP_PATH}
 export PYTHONPATH=${CARB_APP_PATH}/python:${CARB_APP_PATH}/bindings-python
 
 echo Running script in "${SCRIPT_DIR}"
+pushd "$SCRIPT_DIR" > /dev/null
 
 if [ ! -f "${PYTHON}" ]; then
     echo "Python, USD, and Omniverse dependencies are missing. Run \"./repo.sh build\" to configure them."
@@ -19,6 +20,5 @@ if [ ! -f "${PYTHON}" ]; then
     exit
 fi
 
-pushd "$SCRIPT_DIR" > /dev/null
-"${PYTHON}" ./source/pyHelloWorld/helloWorld.py "$@"
+"${PYTHON}" -s ./source/pyHelloWorld/helloWorld.py "$@"
 popd > /dev/null

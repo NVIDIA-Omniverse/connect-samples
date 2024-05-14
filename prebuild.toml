@@ -44,10 +44,20 @@ copy = [
     ["_build/intermediate/sdk-runtime/$config/lib/**", "_build/$platform/$config"], # remap libs & usd plugins to root of build
 
     # extras not installed by connect-sdk installer
-    ["_build/target-deps/usd/release/lib/${lib_prefix}*usdPhysics${lib_ext}", "_build/$platform/$config"],
-    ["_build/target-deps/usd/release/lib/${lib_prefix}*usdSkel${lib_ext}", "_build/$platform/$config"],
-    ["_build/target-deps/usd/release/lib/python/pxr/UsdPhysics", "_build/$platform/$config/python/pxr/UsdPhysics"],
-    ["_build/target-deps/usd/release/lib/python/pxr/UsdSkel", "_build/$platform/$config/python/pxr/UsdSkel"],
+    ["_build/target-deps/usd/$config/bin/${lib_prefix}MaterialXCore*${lib_ext}*", "_build/$platform/$config"],
+    ["_build/target-deps/usd/$config/lib/${lib_prefix}MaterialXCore*${lib_ext}*", "_build/$platform/$config"],
+    ["_build/target-deps/usd/$config/bin/${lib_prefix}MaterialXFormat*${lib_ext}*", "_build/$platform/$config"],
+    ["_build/target-deps/usd/$config/lib/${lib_prefix}MaterialXFormat*${lib_ext}*", "_build/$platform/$config"],
+    ["_build/target-deps/usd/$config/lib/${lib_prefix}*usdHydra${lib_ext}", "_build/$platform/$config"],
+    ["_build/target-deps/usd/$config/lib/${lib_prefix}*usdMtlx${lib_ext}", "_build/$platform/$config"],
+    ["_build/target-deps/usd/$config/lib/${lib_prefix}*usdPhysics${lib_ext}", "_build/$platform/$config"],
+    ["_build/target-deps/usd/$config/lib/${lib_prefix}*usdSkel${lib_ext}", "_build/$platform/$config"],
+    ["_build/target-deps/usd/$config/lib/${lib_prefix}*usdUI${lib_ext}", "_build/$platform/$config"],
+    ["_build/target-deps/usd/$config/lib/python/pxr/UsdHydra", "_build/$platform/$config/python/pxr/UsdHydra"],
+    ["_build/target-deps/usd/$config/lib/python/pxr/UsdMtlx", "_build/$platform/$config/python/pxr/UsdMtlx"],
+    ["_build/target-deps/usd/$config/lib/python/pxr/UsdPhysics", "_build/$platform/$config/python/pxr/UsdPhysics"],
+    ["_build/target-deps/usd/$config/lib/python/pxr/UsdSkel", "_build/$platform/$config/python/pxr/UsdSkel"],
+    ["_build/target-deps/usd/$config/lib/python/pxr/UsdUI", "_build/$platform/$config/python/pxr/UsdUI"],
 
     ["_build/target-deps/omni_transcoding/$config/python", "_build/$platform/$config/python"],
 

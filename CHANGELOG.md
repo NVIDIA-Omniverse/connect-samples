@@ -12,17 +12,17 @@ Connect SDK 1.0.0 release
     * The OmniUsdReader was renamed to UsdTraverse and now uses the Connect SDK and has a new "Getting Started" walkthrough in the SDK docs
     * The build and runtime configuration was revamped to use the Connect SDK premake dependencies
 * Omniverse Connect SDK
-    * [Version 1.0.0](http://omniverse-docs.s3-website-us-east-1.amazonaws.com/connect-sdk/1.0.0/index.html)
+    * [Version 1.0.0](https://docs.omniverse.nvidia.com/kit/docs/connect-sdk/1.0.0/index.html)
 * Omniverse Carbonite SDK
-    * [167.3 Changes](http://omniverse-docs.s3-website-us-east-1.amazonaws.com/carbonite/167.3/CHANGES.html)
+    * [167.3 Changes](https://docs.omniverse.nvidia.com/kit/docs/carbonite/167.3/CHANGES.html)
 * Omniverse USD Resolver
-    * [1.42.3 Changes](http://omniverse-docs.s3-website-us-east-1.amazonaws.com/usd_resolver/1.42.3/docs/changes.html)
+    * [1.42.3 Changes](https://docs.omniverse.nvidia.com/kit/docs/usd_resolver/1.42.3/docs/changes.html)
 * Omniverse Client Library
-    * [2.47.1 Changes](http://omniverse-docs.s3-website-us-east-1.amazonaws.com/client_library/2.47.1/docs/changes.html)
+    * [2.47.1 Changes](https://docs.omniverse.nvidia.com/kit/docs/client_library/2.47.1/docs/changes.html)
 * Omniverse Asset Validator
-    * [0.11.1 Changes](http://omniverse-docs.s3-website-us-east-1.amazonaws.com/asset-validator/0.11.1/source/extensions/omni.asset_validator.core/docs/CHANGELOG.html)
+    * [0.11.1 Changes](https://docs.omniverse.nvidia.com/kit/docs/asset-validator/0.11.1/source/extensions/omni.asset_validator.core/docs/CHANGELOG.html)
 * Omniverse Transcoding
-    * [`0.1.0 About`](http://omniverse-docs.s3-website-us-east-1.amazonaws.com/omni-transcoding/0.1.0/index.html)
+    * [`0.1.0 About`](https://docs.omniverse.nvidia.com/kit/docs/omni-transcoding/0.1.0/index.html)
 
 204.2
 -----

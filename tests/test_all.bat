@@ -14,7 +14,7 @@ if not exist "%PYTHON%" (
     exit /b
 )
 
-"%PYTHON%" tests\test_all.py %*
+"%PYTHON%" -s tests\test_all.py %*
 
 popd
 

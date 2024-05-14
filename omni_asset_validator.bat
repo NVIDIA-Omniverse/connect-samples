@@ -19,7 +19,7 @@ if not exist "%PYTHON%" (
     exit /b
 )
 
-"%PYTHON%" source\pyHelloWorld\assetValidatorBootstrap.py %*
+"%PYTHON%" -s source\pyHelloWorld\assetValidatorBootstrap.py %*
 
 popd
 

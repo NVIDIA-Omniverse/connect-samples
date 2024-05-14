@@ -1,6 +1,6 @@
 # Connect Samples for the Omniverse Connect SDK
 
-These samples demonstrate some key concepts for writing Omniverse Connectors and Converters. The samples use the OpenUSD and [Omniverse Connect SDK](http://omniverse-docs.s3-website-us-east-1.amazonaws.com/connect-sdk) to demonstrate how to author consistent and correct USD:
+These samples demonstrate some key concepts for writing Omniverse Connectors and Converters. The samples use the OpenUSD and [Omniverse Connect SDK](https://docs.omniverse.nvidia.com/kit/docs/connect-sdk) to demonstrate how to author consistent and correct USD:
 
 - [`Omni Asset Validator`](#omni-asset-validator) - A command line validation tool.
 - [`Omni CLI`](#omni-cli) - A command line utility to manage files on a Nucleus server.
@@ -12,15 +12,15 @@ These samples demonstrate some key concepts for writing Omniverse Connectors and
 ## How to Build
 
 ### Build and CI/CD Tools
-The Samples repository uses the [Repo Tools Framework (`repo_man`)](http://omniverse-docs.s3-website-us-east-1.amazonaws.com/repo_man) to configure premake, packman, build and runtime dependencies, testing, formatting, and other tools. Packman is used as a dependency manager for packages like OpenUSD, the Omniverse Client Library, the Omniverse USD Resolver, the Omniverse Asset Validator, and other items. The Samples use the [Connect SDK's standard repoman and packman tooling](http://omniverse-docs.s3-website-us-east-1.amazonaws.com/connect-sdk/1.0.0/docs/details.html#repoman-and-packman) as templates for including and linking against USD, Omniverse Client, etc.  These can serve as an example for the build and runtime configuration that a customer's application might require.  Here's a list of interesting files:
+The Samples repository uses the [Repo Tools Framework (`repo_man`)](https://docs.omniverse.nvidia.com/kit/docs/repo_man) to configure premake, packman, build and runtime dependencies, testing, formatting, and other tools. Packman is used as a dependency manager for packages like OpenUSD, the Omniverse Client Library, the Omniverse USD Resolver, the Omniverse Asset Validator, and other items. The Samples use the [Connect SDK's standard repoman and packman tooling](https://docs.omniverse.nvidia.com/kit/docs/connect-sdk/1.0.0/docs/details.html#repoman-and-packman) as templates for including and linking against USD, Omniverse Client, etc.  These can serve as an example for the build and runtime configuration that a customer's application might require.  Here's a list of interesting files:
 
 - [premake5.lua](./premake5.lua) - the build configuration file for the samples
 - [prebuild.toml](./prebuild.toml) - consumed by the repo build tools to specify where runtime dependencies should be copied
 - _build/target-deps/omni_connect_sdk/release/dev/tools/premake/connect-sdk-public.lua - the Connect SDK's build configuration template file for including USD, Omniverse Client, the Connect SDK itself, and other libraries.
   - this file isn't available until dependencies are fetched
-- [source/config/omni.connect.client.toml](./source/config/omni.connect.client.toml) - A configuration file for overriding settings for logging, crash reporting, etc.  Details for how to configure this file are documented in the [Connect SDK's Core and Client Settings](http://omniverse-docs.s3-website-us-east-1.amazonaws.com/connect-sdk/1.0.0/docs/settings-config.html#core-and-client-settings).
+- [source/config/omni.connect.client.toml](./source/config/omni.connect.client.toml) - A configuration file for overriding settings for logging, crash reporting, etc.  Details for how to configure this file are documented in the [Connect SDK's Core and Client Settings](https://docs.omniverse.nvidia.com/kit/docs/connect-sdk/1.0.0/docs/settings-config.html#core-and-client-settings).
 
-For details on choosing and installing Connect SDK build flavors, features, or versions, see the [install_sdk](http://omniverse-docs.s3-website-us-east-1.amazonaws.com/connect-sdk/1.0.0/docs/devtools.html#repo-install-sdk) tool documentation.
+For details on choosing and installing Connect SDK build flavors, features, or versions, see the [install_sdk](https://docs.omniverse.nvidia.com/kit/docs/connect-sdk/1.0.0/docs/devtools.html#repo-install-sdk) tool documentation.
 
 ### Linux
 This project requires "make" and "g++".
@@ -43,8 +43,6 @@ For commandline argument help, use `--help`
 ```bash
 ./run_hello_world.sh --help
 ```
-
-> Note : For OmniCLI, use `./omnicli.sh help` instead.
 
 ### Windows
 #### Building
@@ -77,7 +75,7 @@ When `repo.bat build` is run, a version of the Microsoft Visual Studio Compiler 
 
 ## Using the Connect SDK in an Application
 
-See the [Connect SDK Getting Started docs](http://omniverse-docs.s3-website-us-east-1.amazonaws.com/connect-sdk/1.0.0/docs/getting-started.html#integrate-connect-sdk-and-build-a-connector) for a walkthrough of how use the Connect SDK and Open USD in your application.
+See the [Connect SDK Getting Started docs](https://docs.omniverse.nvidia.com/kit/docs/connect-sdk/1.0.0/docs/getting-started.html#integrate-connect-sdk-and-build-a-connector) for a walkthrough of how use the Connect SDK and Open USD in your application.
 
 ## Sample Details
 
@@ -177,7 +175,7 @@ It takes two arguments, the USD layer to watch and the output USDA layer:
     - A local file path using shell variables: `~\helloworld.usda`
     - A relative path based on the CWD of the program: `helloworld.usda`
 
-Note: Since the version 200.0 releases of the Connect Sample (Client Library 2.x) only `.live` layers synchronize through Nucleus.  This tool will export any supported USD file format as USDA, but if you intend to watch live file edits it must be a `.live` layer.  For more information on where to find the `root.live` layer for Live Sessions, see the [Connect SDK Live Session Configuration File Utilities](http://omniverse-docs.s3-website-us-east-1.amazonaws.com/connect-sdk/1.0.0/api/group__livesessions.html#group__livesessions_1autotoc_md4).
+Note: Since the version 200.0 releases of the Connect Sample (Client Library 2.x) only `.live` layers synchronize through Nucleus.  This tool will export any supported USD file format as USDA, but if you intend to watch live file edits it must be a `.live` layer.  For more information on where to find the `root.live` layer for Live Sessions, see the [Connect SDK Live Session Configuration File Utilities](https://docs.omniverse.nvidia.com/kit/docs/connect-sdk/1.0.0/api/group__livesessions.html#group__livesessions_1autotoc_md4).
 
 The "watcher" demonstrates how to:
 
@@ -266,7 +264,7 @@ tools\packman\python.bat -m pip install python-certifi-win32 --trusted-host pypi
 
 The license for the samples is located in [LICENSE.md](./LICENSE.md).
 
-Third party license notices for dependencies used by the samples are located in the [Connect SDK License Notices](http://omniverse-docs.s3-website-us-east-1.amazonaws.com/connect-sdk/1.0.0/docs/licenses.html).
+Third party license notices for dependencies used by the samples are located in the [Connect SDK License Notices](https://docs.omniverse.nvidia.com/kit/docs/connect-sdk/1.0.0/docs/licenses.html).
 
 ## Documentation and learning resources for USD and Omniverse
 
@@ -282,8 +280,8 @@ Third party license notices for dependencies used by the samples are located in 
 
 [NVIDIA OpenUSD Docs](https://developer.nvidia.com/usd)
 
-[Omniverse Connect SDK Docs](http://omniverse-docs.s3-website-us-east-1.amazonaws.com/connect-sdk)
+[Omniverse Connect SDK Docs](https://docs.omniverse.nvidia.com/kit/docs/connect-sdk)
 
-[Omniverse Client Library Docs](http://omniverse-docs.s3-website-us-east-1.amazonaws.com/client_library)
+[Omniverse Client Library Docs](https://docs.omniverse.nvidia.com/kit/docs/client_library)
 
-[Omniverse USD Resolver Docs](http://omniverse-docs.s3-website-us-east-1.amazonaws.com/usd_resolver)
+[Omniverse USD Resolver Docs](https://docs.omniverse.nvidia.com/kit/docs/usd_resolver)

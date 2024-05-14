@@ -20,5 +20,5 @@ if [ ! -f "${PYTHON}" ]; then
     exit
 fi
 
-"${PYTHON}" ./source/pyHelloWorld/liveSession.py "$@"
+"${PYTHON}" -s ./source/pyHelloWorld/liveSession.py "$@"
 popd > /dev/null
