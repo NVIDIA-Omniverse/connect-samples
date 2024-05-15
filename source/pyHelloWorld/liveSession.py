@@ -75,7 +75,8 @@ def startOmniverse(verbose: bool):
     g_connection_status_subscription = omni.client.register_connection_status_callback(connectionStatusCallback)
 
     # Add this material path so that the Asset Validator can resolve paths to the core MDL files like OmniPBR.mdl
-    core_mdl_path = os.path.abspath(os.path.join(scriptdir, "../../_build/target-deps/omni_core_materials/Base"))
+    scriptdir = os.path.dirname(os.path.realpath(__file__))
+    core_mdl_path = f'file:{os.path.abspath(os.path.join(scriptdir, "../../_build/target-deps/omni_core_materials/Base"))}'
     omni.client.add_default_search_path(core_mdl_path)
 
 

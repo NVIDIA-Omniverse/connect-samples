@@ -22,7 +22,7 @@ Connect SDK 1.0.0 release
 * Omniverse Asset Validator
     * [0.11.1 Changes](https://docs.omniverse.nvidia.com/kit/docs/asset-validator/0.11.1/source/extensions/omni.asset_validator.core/docs/CHANGELOG.html)
 * Omniverse Transcoding
-    * [`0.1.0 About`](https://docs.omniverse.nvidia.com/kit/docs/omni-transcoding/0.1.0/index.html)
+    * [0.1.0 About](https://docs.omniverse.nvidia.com/kit/docs/omni-transcoding/0.1.0/index.html)
 
 204.2
 -----

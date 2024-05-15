@@ -260,6 +260,18 @@ Install python-certifi-win32 which allows the windows certificate store to be us
 tools\packman\python.bat -m pip install python-certifi-win32 --trusted-host pypi.org --trusted-host files.pythonhosted.org
 ```
 
+## External Support
+
+First search the existing [GitHub Issues](https://github.com/NVIDIA-Omniverse/connect-samples/issues) and the [Connect Samples Forum](https://forums.developer.nvidia.com/c/omniverse/connectors/sample) to see if anyone has reported something similar.
+
+If not, create a new [GitHub Issue](https://github.com/NVIDIA-Omniverse/connect-samples/issues/new) or forum topic explaining your bug or feature request.
+
+- For bugs, please provide clear steps to reproduce the issue, including example failure data as needed.
+- For features, please provide user stories and persona details (i.e. who does this feature help and how does it help them).
+
+Whether adding details to an existing issue or creating a new one, please let us know what companies are impacted.
+
+
 ## Licenses
 
 The license for the samples is located in [LICENSE.md](./LICENSE.md).
