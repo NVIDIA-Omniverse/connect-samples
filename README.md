@@ -1,3 +1,10 @@
+# Future Plans for the Connect Samples
+
+- OpenUSD authoring and code samples should reference [OpenUSD Exchange Samples](https://github.com/NVIDIA-Omniverse/usd-exchange-samples) and use the [OpenUSD Exchange SDK](https://github.com/NVIDIA-Omniverse/usd-exchange).
+- These Connect Samples will be updated with guidance and samples on using the [Omniverse Client Library](https://docs.omniverse.nvidia.com/kit/docs/client_library/latest/index.html).
+- The OpenUSD Exchange SDK has replaced the Omniverse Connect SDK for USD authoring.
+- Live Sync and Nucleus support will be documented through the Client Library API and Code Samples in the updated Connect Samples.
+
 # Connect Samples for the Omniverse Connect SDK
 
 These samples demonstrate some key concepts for writing Omniverse Connectors and Converters. The samples use the OpenUSD and [Omniverse Connect SDK](https://docs.omniverse.nvidia.com/kit/docs/connect-sdk) to demonstrate how to author consistent and correct USD:
