@@ -82,10 +82,14 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Path to the unpacked package, e.g. set with -DOMNI_CLIENT_DIR=.../deps/omni_client_library
 find_path(OMNICLIENT_INCLUDE NAMES OmniClient.h
-    PATHS ${OMNI_CLIENT_DIR}/include REQUIRED)
+    PATHS ${OMNI_CLIENT_DIR}/include)
 
 find_library(OMNICLIENT_LIB NAMES omniclient
     PATHS ${OMNI_CLIENT_DIR}/release NO_DEFAULT_PATH)
+
+if(NOT OMNICLIENT_INCLUDE OR NOT OMNICLIENT_LIB)
+    message(FATAL_ERROR "Omniverse Client Library not found in ${OMNI_CLIENT_DIR}")
+endif()
 
 add_executable(myapp main.cpp)
 target_include_directories(myapp PRIVATE ${OMNICLIENT_INCLUDE})
