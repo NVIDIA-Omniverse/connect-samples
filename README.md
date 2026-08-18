@@ -131,10 +131,10 @@ int main()
     omniClientSetLogLevel(eOmniClientLogLevel_Warning);
 
     // Example: list a folder. The call is async; omniClientWait() blocks until done.
-    int retCode = 0;
-    omniClientWait(omniClientList("omniverse://localhost/Projects", &retCode,
+    omniClientWait(omniClientList("omniverse://localhost/Projects", nullptr,
         [](void* userData, OmniClientResult result, uint32_t numEntries,
            OmniClientListEntry const* entries) noexcept {
+            (void)userData;
             if (result != eOmniClientResult_Ok) return;
             for (uint32_t i = 0; i < numEntries; ++i)
                 printf("%s\n", entries[i].relativePath);
